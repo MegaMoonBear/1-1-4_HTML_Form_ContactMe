@@ -1,0 +1,37 @@
+<!--1-1-4_HTML_Form_ContactMe-->
+
+    <!--Front-end is what user sees, like lobby-->
+    <!--Back-end is behind-scenes - storage and organization and security, like doorman-->
+    <!--Methods relate to direction of info flow as post for collect or maybe GET or PUT for display-->
+    <!--Label will communicate to user. Input is what tool or info exchange method - box for text-->
+    <h4>Connect with us</h4>
+    <!--Blank for "form action" will keep skeleton but avoid action-->
+    <form action="" method="post">
+        
+        <label for="Name_F">Family Name:</label>
+        <input type="text" id="Name_F" name="Family name" placeholder="Enter your family name" required>
+
+        <label for="Email">Email:</label>
+        <input type="email" id="Email" name="Email" placeholder="Enter your email" required>
+
+        <input type="checkbox" id="subscribe" name="subscribe" value="yes">
+        <label for="subscribe"> Subscribe to our newsletter</label><br> 
+
+        <input type="radio" id="Maui" name="destination" value="Maui">
+        <label for="Maui"> Interested in Maui</label><br>
+        <input type="radio" id="Yellowstone" name="destination" value="Yellowstone">
+        <label for="Yellowstone"> Interested in Yellowstone</label><br>
+
+        <!--All info in form will be shared with server-->
+        <!--Masking or hiding password as and after typing and add eyeball icon to display-->
+        <!--<label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter a password" required>-->
+
+        <!--Or Comments"-->
+        <label for="messageBox">Message:</label>
+        <textarea for="messageBox"></textarea>
+        <!--ATTRIBUTES - maxlength with character count and others - see next-->
+        <!--Required attributes for data quality and first cybersecurity method-->
+
+        <input type="submit" value="Submit">
+        <!--Alternate "input type=Button"-->
