@@ -4,34 +4,79 @@
     <!--Back-end is behind-scenes - storage and organization and security, like doorman-->
     <!--Methods relate to direction of info flow as post for collect or maybe GET or PUT for display-->
     <!--Label will communicate to user. Input is what tool or info exchange method - box for text-->
-    <h4>Connect with us</h4>
+    
+    
+<!DOCTYPE html>
+<html lang="en">
     <!--Blank for "form action" will keep skeleton but avoid action-->
     <form action="" method="post">
-        
-        <label for="Name_F">Family Name:</label>
-        <input type="text" id="Name_F" name="Family name" placeholder="Enter your family name" required>
 
-        <label for="Email">Email:</label>
-        <input type="email" id="Email" name="Email" placeholder="Enter your email" required>
+<header>        
+    <div class="form-header">
+            <h2>Contact Us</h2>
+    </div>
+</header>
 
-        <input type="checkbox" id="subscribe" name="subscribe" value="yes">
-        <label for="subscribe"> Subscribe to our newsletter</label><br> 
+<body>
+<form id="contactForm">
+    <!--For spacing, an alternative to p-aragraph may be:  <div class="UserName"> </div>  -->
+    <p>
+        <label for="Name_User">User Name:  </label>
+        <input type="text" id="Name_User" name="User Name" placeholder="Enter your user name" required>
+    </p>
 
-        <input type="radio" id="Maui" name="destination" value="Maui">
-        <label for="Maui"> Interested in Maui</label><br>
-        <input type="radio" id="Yellowstone" name="destination" value="Yellowstone">
-        <label for="Yellowstone"> Interested in Yellowstone</label><br>
+    <p>
+                <label for="messageBox">Message (250-character limit):  </label>
+        <textarea for="messageBox" maxlength="250"></textarea>
+            <!--Required attributes for data quality and first cybersecurity method-->
+    </p>
 
-        <!--All info in form will be shared with server-->
-        <!--Masking or hiding password as and after typing and add eyeball icon to display-->
-        <!--<label for="password">Password:</label>
-        <input type="password" id="password" name="password" placeholder="Enter a password" required>-->
+<!--Did we learn this?-->
+    <!--When user clicks submit, the form should open the user's default email app.-->
+    <p>
+        <label for="email">Your email:  </label>    
+            <input 
+            type="email" 
+            id="email" 
+            name="email"
+            required
+            autocomplete="email"
+            placeholder="you@example.com"
+            />
+    </p>
 
-        <!--Or Comments"-->
-        <label for="messageBox">Message:</label>
-        <textarea for="messageBox"></textarea>
-        <!--ATTRIBUTES - maxlength with character count and others - see next-->
-        <!--Required attributes for data quality and first cybersecurity method-->
+    <p>
+        <!--A label is not needed for submit button, but can be used for accessibility-->
+        <input type="submit"/>
+    <!--Alternative to "submit":  <input type="button">  -->
+    </p>
 
-        <input type="submit" value="Submit">
-        <!--Alternate "input type=Button"-->
+  </form>
+
+  <!--Did we learn this?-->
+    <!--When user clicks submit, the form should open the user's default email app.-->
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function (e) {
+      e.preventDefault(); // stop normal submit
+
+      const email = document.getElementById('email').value.trim();
+      const message = document.getElementById('message').value.trim();
+
+      // Basic check (browser already checks type="email" but this is defensive)
+      if (!email) {
+        alert('Please enter a valid email.');
+        return;
+      }
+
+      // Build mailto: — opens default mail app with To, Subject, and Body filled.
+      const to = 'recipient@example.com'; // change to the address you want to open in "To"
+      const subject = encodeURIComponent('Contact from website');
+      const body = encodeURIComponent('Sender: ' + email + '\n\n' + message);
+
+      const mailto = `mailto:${to}?subject=${subject}&body=${body}`;
+
+      // Open the default mail client
+      window.location.href = mailto;
+    });
+  </script>
+</body>
